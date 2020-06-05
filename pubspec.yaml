@@ -38,10 +38,12 @@ dev_dependencies:
     sdk: flutter
   # mocking
   mockito: ^4.1.1
-  build_runner:
+  build_runner: ^1.10.0
   moor_generator: ^3.1.0
   chopper_generator: ^2.0.0
   built_value_generator: ^7.1.0
+  # json serializer
+  json_serializable: ^3.3.0
 
 
 

@@ -14,15 +14,15 @@ class _$ApiService extends ApiService {
 
   final definitionType = ApiService;
 
-  Future<Response<BuiltList<BuiltUser>>> getUsers() {
+  Future<Response<BuiltList<UserDto>>> getUsers() {
     final $url = 'users';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<BuiltList<BuiltUser>, BuiltUser>($request);
+    return client.send<BuiltList<UserDto>, UserDto>($request);
   }
 
-  Future<Response<BuiltUser>> getUser(int identifier) {
+  Future<Response<UserDto>> getUser(int identifier) {
     final $url = 'users/${identifier}';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<BuiltUser, BuiltUser>($request);
+    return client.send<UserDto, UserDto>($request);
   }
 }
