@@ -14,15 +14,15 @@ class _$ApiService extends ApiService {
 
   final definitionType = ApiService;
 
-  Future<Response> getUsers() {
-    final $url = 'https://jsonplaceholder.typicode.com/users';
+  Future<Response<BuiltList<BuiltUser>>> getUsers() {
+    final $url = 'users';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
+    return client.send<BuiltList<BuiltUser>, BuiltUser>($request);
   }
 
-  Future<Response> getUser(int identifier) {
-    final $url = 'https://jsonplaceholder.typicode.com/user/${identifier}';
+  Future<Response<BuiltUser>> getUser(int identifier) {
+    final $url = 'users/${identifier}';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
+    return client.send<BuiltUser, BuiltUser>($request);
   }
 }
