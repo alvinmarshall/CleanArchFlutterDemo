@@ -11,6 +11,7 @@ void main() {
     test("should return a valid user model", () async {
       var jsonMap = json.decode(getFixture(USER_JSON));
       var result = UserModel.fromJson(jsonMap);
+      print(jsonMap);
       print(result);
       expect(jsonMap['username'], result.username);
     });

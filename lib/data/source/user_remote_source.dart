@@ -1,6 +1,7 @@
 import 'package:learncleanarch/data/model/user_model.dart';
 import 'package:learncleanarch/data/service/api_service.dart';
 import 'package:learncleanarch/utils/exception/exceptions.dart';
+import 'package:learncleanarch/extension/user_dto_to_model.dart';
 
 abstract class IUserRemoteSource {
   /// Calls Get https://jsonplaceholder.typicode.com/users endpoint
@@ -23,21 +24,17 @@ class UserRemoteSourceImpl implements IUserRemoteSource {
 
   @override
   Future<UserModel> fetchUser(int identifier) async {
-    var resp = await _apiService.getUser(identifier);
-    if (resp.statusCode == getStatusOk) {
-      return UserModel.fromJson(resp.body.toJson());
-    } else {
-      throw ServerException();
-    }
+    var data = await _apiService.getUser(identifier);
+    print(data);
+    if (data.statusCode != getStatusOk) throw ServerException();
+    return data.body.asModel;
   }
 
   @override
   Future<List<UserModel>> fetchUsers() async {
-    var resp = await _apiService.getUsers();
-    if (resp.statusCode == getStatusOk) {
-      return resp.body.toList().map((e) => UserModel.fromJson(e.toJson()));
-    } else {
-      throw ServerException();
-    }
+    var data = await _apiService.getUsers();
+    print(data);
+    if (data.statusCode != getStatusOk) throw ServerException();
+    return data.body.toList().map((e) => e.asModel).toList(growable: true);
   }
 }
