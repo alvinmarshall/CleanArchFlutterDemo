@@ -1,7 +1,7 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:learncleanarch/data/service/api/dto/user_dto.dart';
 import 'package:learncleanarch/data/service/api_service.dart';
-import 'package:learncleanarch/data/service/dto/user_dto.dart';
 import 'package:learncleanarch/data/source/user_remote_source.dart';
 import 'package:learncleanarch/utils/exception/exceptions.dart';
 import 'package:mockito/mockito.dart';

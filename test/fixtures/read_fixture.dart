@@ -1,4 +1,12 @@
-import 'dart:io';
+import 'dart:io' show File, Directory;
 
-String getFixture(String name) =>
-    File("test/fixtures/$name").readAsStringSync();
+import 'package:path/path.dart';
+
+String getFixture(String name) {
+  final testDirectory = join(
+    Directory.current.path,
+    Directory.current.path.endsWith('test') ? '' : 'test',
+    'fixtures',
+  );
+  return File(join(testDirectory, "$name")).readAsStringSync();
+}

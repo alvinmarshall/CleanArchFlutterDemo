@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:learncleanarch/data/db/dao/user_dao.dart';
 import 'package:learncleanarch/data/model/user_model.dart';
+import 'package:learncleanarch/utils/exception/exceptions.dart';
 
 abstract class IUserLocalSource {
   Future<List<UserModel>> getUsers();
@@ -20,13 +21,23 @@ class UserLocalSourceImpl implements IUserLocalSource {
       await userDao.getUser(identifier);
 
   @override
-  Future<List<UserModel>> getUsers() async => await userDao.getUsers();
+  Future<List<UserModel>> getUsers() async {
+    try {
+      return await userDao.getUsers();
+    } catch (e) {
+      throw CacheException();
+    }
+  }
 
   @override
   Future<void> saveUsers(List<UserModel> userModelList) async {
     print("saveUsers: $userModelList");
-    userModelList.forEach((user) async {
-      await userDao.addUser(user);
-    });
+    try {
+      userModelList.forEach((user) async {
+        await userDao.addUser(user);
+      });
+    } catch (e) {
+      throw CacheException();
+    }
   }
 }

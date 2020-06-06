@@ -1,7 +1,7 @@
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:learncleanarch/data/service/serializer/serializers.dart';
+import 'package:learncleanarch/data/service/api/serializer/serializers.dart';
 
 part 'user_dto.g.dart';
 

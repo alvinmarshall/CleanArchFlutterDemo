@@ -1,6 +1,6 @@
 import 'package:chopper/chopper.dart';
-import 'package:learncleanarch/data/service/serializer/serializers.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:learncleanarch/data/service/api/serializer/serializers.dart';
 
 class BuildValueConverter extends JsonConverter {
   T _deserialize<T>(Map<String, dynamic> element) {

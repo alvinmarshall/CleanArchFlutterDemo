@@ -1,5 +1,6 @@
-import 'package:learncleanarch/data/model/user_model.dart';
-import 'package:learncleanarch/data/service/dto/user_dto.dart';
+
+ import 'package:learncleanarch/data/model/user_model.dart';
+import 'package:learncleanarch/data/service/api/dto/user_dto.dart';
 
 extension UserDtoToModel on UserDto {
   UserModel get asModel => UserModel.fromJson(UserDto((b) => b
